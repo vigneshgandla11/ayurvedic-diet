@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ayurvedic Diet Planner</title>
+<style>
+:root { --primary: #0f7f3f; --secondary: #264653; --muted: #64748b; --surface: #ffffff; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(130deg, #f9fcea 0%, #eef5ff 45%, #f4f8ff 100%); color: #1f2937; }
+.main { max-width: 900px; margin: 2rem auto; background: #fff; border-radius: 18px; box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15); border: 1px solid #ebeff5; overflow: hidden; }
+.hero { background: linear-gradient(130deg, #0f7f3f 0%, #34c38d 100%); color: #fff; padding: 1rem 1.2rem; }
+.hero h1 { margin: 0; font-size: 2rem; }
+.hero p { margin: .25rem 0 0; color: #eaf7ee; }
+.content { padding: 1.1rem 1.2rem 1.4rem; }
+form { display: grid; gap: 0.9rem; }
+.field { display: grid; gap: 0.3rem; }
+label { font-weight: 600; color: #334155; }
+input, select, button { width: 100%; border-radius: 10px; border: 1px solid #cbd5e1; background: #fff; font-size: .95rem; padding: .6rem .75rem; }
+input:focus, select:focus, button:focus { outline: none; border-color: #0f7f3f; box-shadow: 0 0 0 3px rgba(15, 127, 63, 0.15); }
+.grid-two { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+.select-wrap select { min-height: 130px; }
+.small { font-size: .82rem; color: #64748b; margin-top: .1rem; }
+button { margin-top: .4rem; background: linear-gradient(90deg, #0f7f3f, #00b074); color: #fff; border: none; font-weight: 700; cursor: pointer; letter-spacing: .2px; transition: transform .2s ease; }
+button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(15,127,63,.2); }
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="hero">
+    <h1>🌿 Ayurvedic Diet Planner</h1>
+    <p>Choose one or more conditions to get personalized diet recommendations.</p>
+  </div>
+  <div class="content">
+    <form action="/result" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" pattern="[A-Za-z ]+" title="Only letters allowed" placeholder="Your name" required>
+      </div>
+      <div class="grid-two">
+        <div class="field">
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" min="1" max="120" placeholder="e.g. 29" required>
+        </div>
+        <div class="field">
+          <label for="weight">Weight (kg)</label>
+          <input id="weight" name="weight" type="number" min="10" max="250" placeholder="e.g. 68" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="height">Height (cm)</label>
+        <input id="height" name="height" type="number" min="50" max="250" placeholder="e.g. 170" required>
+      </div>
+      <div class="field select-wrap">
+        <label for="issues">Health Issues (select multiple)</label>
+        <select id="issues" name="issues" multiple required>
+          {% for issue in issues %}
+          <option value="{{issue}}">{{issue}}</option>
+          {% endfor %}
+        </select>
+        <div class="small">Hold Ctrl (or Cmd on Mac) to select multiple.</div>
+      </div>
+      <button type="submit">Get Diet Plan</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

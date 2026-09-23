@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Patient History</title>
+</head>
+<body>
+
+<h2>Patient History</h2>
+
+<table border="1">
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Height</th>
+<th>Weight</th>
+<th>Issues</th>
+</tr>
+
+{% for p in patients %}
+<tr>
+<td>{{p.name}}</td>
+<td>{{p.age}}</td>
+<td>{{p.height}}</td>
+<td>{{p.weight}}</td>
+<td>{{p.issues}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
