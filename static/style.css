@@ -1,0 +1,37 @@
+body{
+    font-family: Arial;
+    background: #f2f7f2;
+}
+
+.container{
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+h2{
+    text-align: center;
+    color: green;
+}
+
+input, select, button{
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+button{
+    background: green;
+    color: white;
+    border: none;
+    font-size: 16px;
+}
+
+button:hover{
+    background: darkgreen;
+}
